@@ -52,13 +52,13 @@
                 @Html.DisplayFor(modelItem => item.ExpiryDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductType.Id)
+                @Html.DisplayFor(modelItem => item.ProductType.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Maker.Id)
+                @Html.DisplayFor(modelItem => item.Maker.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Staff.Id)
+                @Html.DisplayFor(modelItem => item.Staff.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

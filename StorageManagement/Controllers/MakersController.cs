@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace StorageManagement.Controllers
 {
-    public class ProductTypesController : Controller
+    public class MakersController : Controller
     {
         private readonly StorageDbContext _context;
-        public ProductTypesController(StorageDbContext context)
+        public MakersController(StorageDbContext context)
         {
             _context = context;
         }
         public async Task<ActionResult> Index()
         {
-            var productTypes = _context.ProductTypes.ToList();
-            return View(productTypes);
+            var makers = _context.Makers.ToList();
+            return View(makers);
         }
 
         public ActionResult Create()
@@ -29,15 +29,15 @@ namespace StorageManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind("Name,Id")] ProductType productType)
+        public async Task<ActionResult> Create([Bind("Name,Country,Experience,Id")] Maker maker)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(productType);
+                _context.Add(maker);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(productType);
+            return View(maker);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -47,20 +47,20 @@ namespace StorageManagement.Controllers
                 return NotFound();
             }
 
-            var productType = await _context.ProductTypes.FindAsync(id);
-            if (productType == null)
+            var maker = await _context.Makers.FindAsync(id);
+            if (maker == null)
             {
                 return NotFound();
             }
-            return View(productType);
+            return View(maker);
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Id")] ProductType productType)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Country,Experience,Id")] Maker maker)
         {
-            if (id != productType.Id)
+            if (id != maker.Id)
             {
                 return NotFound();
             }
@@ -69,12 +69,12 @@ namespace StorageManagement.Controllers
             {
                 try
                 {
-                    _context.Update(productType);
+                    _context.Update(maker);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductTypeExists(productType.Id))
+                    if (!MakerExists(maker.Id))
                     {
                         return NotFound();
                     }
@@ -85,7 +85,7 @@ namespace StorageManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productType);
+            return View(maker);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -95,27 +95,27 @@ namespace StorageManagement.Controllers
                 return NotFound();
             }
 
-            var productType = await _context.ProductTypes
+            var maker = await _context.Makers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productType == null)
+            if (maker == null)
             {
                 return NotFound();
             }
-            return View(productType);
+            return View(maker);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productType = await _context.ProductTypes.FindAsync(id);
-            _context.ProductTypes.Remove(productType);
+            var maker = await _context.Makers.FindAsync(id);
+            _context.Makers.Remove(maker);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        private bool ProductTypeExists(int id)
+        private bool MakerExists(int id)
         {
-            return _context.ProductTypes.Any(e => e.Id == id);
+            return _context.Makers.Any(e => e.Id == id);
         }
     }
 }
