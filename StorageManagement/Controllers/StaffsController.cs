@@ -29,7 +29,7 @@ namespace StorageManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind("Name,Birthday,Position,Id")] Staff staff)
+        public async Task<ActionResult> Create([Bind("Name,Birthday,AppointedDay,Position,FiredDay,Id")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace StorageManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Birthday,Position,Id")] Staff staff)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Birthday,AppointedDay,Position,FiredDay,Id")] Staff staff)
         {
             if (id != staff.Id)
             {
