@@ -5,7 +5,7 @@
 @model IEnumerable<DataModels.Staff>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Staff";
 }
 
 <h1>Staff</h1>
@@ -14,26 +14,26 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Add new staff</a>
     </p>
 }
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Birthday)
+                Birthday
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AppointedDay)
+                Appointed day
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Position)
+                Position
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FiredDay)
+                Fired day
             </th>
             <th></th>
         </tr>

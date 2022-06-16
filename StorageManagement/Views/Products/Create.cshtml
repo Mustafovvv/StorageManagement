@@ -1,10 +1,10 @@
 ﻿@model DataModels.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adding";
 }
 
-<h1>Create</h1>
+<h1>Adding new</h1>
 
 <h4>Product</h4>
 <hr />
@@ -13,35 +13,35 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label>Name</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
+                <label>Quantity</label>
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Standart" class="control-label"></label>
+                <label>Standart</label>
                 <input asp-for="Standart" class="form-control" />
                 <span asp-validation-for="Standart" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ExpiryDate" class="control-label">Expiry date</label>
+                <label>Expiry date</label>
                 <input asp-for="ExpiryDate" class="form-control" />
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductTypeId" class="control-label">Product Type</label>
+                <label>Product Type</label>
                 <select asp-for="ProductTypeId" class ="form-control" asp-items="ViewBag.ProductTypeId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="MakerId" class="control-label">Maker</label>
+                <label>Maker</label>
                 <select asp-for="MakerId" class ="form-control" asp-items="ViewBag.MakerId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="StaffId" class="control-label">Staff</label>
+                <label>Arranged by staff</label>
                 <select asp-for="StaffId" class ="form-control" asp-items="ViewBag.StaffId"></select>
             </div>
             <div class="form-group">

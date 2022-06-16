@@ -9,8 +9,9 @@ namespace DataModels
 {
    public class ProductType:BaseModel
     {
-        [Required(ErrorMessage = "Името е задължително")]
-        [StringLength(30, ErrorMessage = "{0} Дължината на името трябва да бъде между {2} and {1}.", MinimumLength = 3)]
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(30, ErrorMessage = "{0} Lenght must be between {2} and {1}.", MinimumLength = 3)]
+        [RegularExpression("^[а-я А-Я a-z A-Z]*$", ErrorMessage = "Can't write numbers!")]
         public string Name { get; set; }
     }
 }

@@ -4,21 +4,21 @@
 @model IEnumerable<DataModels.ProductType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product types";
 }
 
-<h1>Types</h1>
+<h1>Product types</h1>
 @if (SignInManager.IsSignedIn(User))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Add new type</a>
     </p>
 }
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th></th>
         </tr>

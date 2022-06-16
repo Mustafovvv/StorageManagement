@@ -10,15 +10,15 @@ namespace DataModels
 {
    public class Product:BaseModel
     {
-        [Required (ErrorMessage = "Името е задължително")] 
-        [StringLength(30, ErrorMessage = "{0} Дължината на името трябва да бъде между {2} and {1}.", MinimumLength = 3)]
-        [RegularExpression("^[а-я А-Я a-z A-Z]*$", ErrorMessage = "Не може да се въвеждат цифри!")]
+        [Required (ErrorMessage = "Name is required")] 
+        [StringLength(30, ErrorMessage = "{0} Lenght must be between{2} and {1}.", MinimumLength = 3)]
+        [RegularExpression("^[а-я А-Я a-z A-Z]*$", ErrorMessage = "Can't write numbers!")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Количеството е задължително")]
+        [Required(ErrorMessage = "Quantity is required")]
         public int Quantity { get; set; }
-        [Required(ErrorMessage = "Стандарта е задължителен")]
+        [Required(ErrorMessage = "Standart is required")]
         public string Standart { get; set; }
-        [Required(ErrorMessage = "Срока на годност е задължително")]
+        [Required(ErrorMessage = "Expiry day is required")]
         public DateTime ExpiryDate { get; set; }
         public int ProductTypeId { get; set; }
         public ProductType ProductType { get; set; }
