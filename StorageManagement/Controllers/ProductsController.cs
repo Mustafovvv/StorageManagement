@@ -34,7 +34,7 @@ namespace StorageManagement.Controllers
         public ActionResult Create()
         {
             ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Name");
-            ViewData["MakerId"] = new SelectList(_context.Makers, "Id", "Country");
+            ViewData["MakerId"] = new SelectList(_context.Makers, "Id", "Name");
             ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "Name");
             return View();
         }
@@ -50,7 +50,7 @@ namespace StorageManagement.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Name",product.ProductTypeId);
-            ViewData["MakerId"] = new SelectList(_context.Makers, "Id", "Country",product.MakerId);
+            ViewData["MakerId"] = new SelectList(_context.Makers, "Id", "Name",product.MakerId);
             ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "Name",product.StaffId);
             return View(product);
         }
